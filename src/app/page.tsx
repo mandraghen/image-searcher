@@ -37,7 +37,7 @@ export default function SearchPage() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        {photos?.results != undefined && photos?.results?.length > 0 ? photos?.results.map((photo) => (
+        {photos?.results && photos?.results?.length > 0 ? photos?.results.map((photo) => (
           <Card key={photo.id} className="bg-gray-100 rounded-lg overflow-hidden">
             <CardHeader>
               <Image
@@ -68,7 +68,7 @@ export default function SearchPage() {
         }
       </div>
 
-      {photos?.results != undefined ? photos?.results?.length > 0 && (
+      {photos?.results ? photos?.results?.length > 0 && (
         <div className="flex justify-between mt-4">
           <Button
             onClick={() => handlePagination(page - 1)}
