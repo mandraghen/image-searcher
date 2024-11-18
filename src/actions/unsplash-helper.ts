@@ -3,8 +3,9 @@
 import { unsplash } from "@/lib/unsplash";
 import { Photos } from "unsplash-js/dist/methods/search/types/response";
 import { Full } from "unsplash-js/dist/methods/photos/types";
+import { cache } from 'react'
 
-export async function searchImages(searchTerm: string, page: number): Promise<Photos | null> {
+export const searchImages = cache(async (searchTerm: string, page: number): Promise<Photos | null> => {
     const response = unsplash.search.getPhotos({
         query: searchTerm,
         page: page,
@@ -21,9 +22,9 @@ export async function searchImages(searchTerm: string, page: number): Promise<Ph
     });
 
     return response;
-}
+});
 
-export async function searchImageDetails(photoId: string): Promise<Full | null> {
+export const searchImageDetails = cache(async (photoId: string): Promise<Full | null> => {
     const response = unsplash.photos.get(
         { photoId }
     ).then(result => {
@@ -38,4 +39,4 @@ export async function searchImageDetails(photoId: string): Promise<Full | null> 
     });
 
     return response;
-}
+});

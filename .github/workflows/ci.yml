@@ -20,4 +20,3 @@ jobs:
     if: ${{ success() }}
     uses: ./.github/workflows/promote.yml
     secrets: inherit
-    
