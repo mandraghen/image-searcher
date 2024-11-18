@@ -10,13 +10,7 @@ export default function SearchPage() {
   const [photos, setPhotos] = useState<Photos | null>();
   const [page, setPage] = useState(1);
 
-  const handleSearch = async () => {
-    const results = await searchImages(query, 1);
-    setPhotos(results);
-    setPage(1);
-  };
-
-  const handlePagination = async (newPage: number) => {
+  const handleSearch = async (newPage: number) => {
     const results = await searchImages(query, newPage);
     setPhotos(results);
     setPage(newPage);
@@ -30,10 +24,15 @@ export default function SearchPage() {
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch(1);
+            }
+          }}
           placeholder="Search for photos..."
-          className="flex-1 mr-2"
+          className="flex-1 mr-2 text-black"
         />
-        <Button onClick={handleSearch}>Search</Button>
+        <Button onClick={() => handleSearch(1)}>Search</Button>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
@@ -42,7 +41,6 @@ export default function SearchPage() {
             <CardHeader>
               <Image
                 alt={photo.alt_description || "Unsplash photo"}
-                //radius="sm"
                 src={photo.urls.small}
                 width={400}
               />
@@ -71,12 +69,12 @@ export default function SearchPage() {
       {photos?.results ? photos?.results?.length > 0 && (
         <div className="flex justify-between mt-4">
           <Button
-            onClick={() => handlePagination(page - 1)}
+            onClick={() => handleSearch(page - 1)}
             disabled={page === 1}
           >
             Previous
           </Button>
-          <Button onClick={() => handlePagination(page + 1)}>Next</Button>
+          <Button onClick={() => handleSearch(page + 1)}>Next</Button>
         </div>
       ) : null
       }

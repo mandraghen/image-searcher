@@ -1,6 +1,6 @@
 import { searchImageDetails } from "@/actions/unsplash-helper";
 import type { Metadata } from 'next'
-import { Card, Button, Link, Spacer, CardBody } from "@nextui-org/react";
+import { Card, Button, Link, Spacer, CardBody, Image } from "@nextui-org/react";
 
 type Props = {
     params: Promise<{ id: string }>
@@ -33,7 +33,7 @@ export default async function PhotoDetailsPage({ params }: Props) {
                         className="flex-shrink-0 lg:w-1/2 w-full overflow-hidden rounded-lg shadow-md"
                     >
                         <CardBody>
-                            <img
+                            <Image
                                 src={photo?.urls.full}
                                 alt={photo?.alt_description || "Unsplash photo"}
                                 className="w-full h-auto rounded-lg"
