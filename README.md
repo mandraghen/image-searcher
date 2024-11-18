@@ -1,9 +1,10 @@
 # image-searcher
-This is a test web app built using the nextjs framework that retrieve images from Unsplash using its public API
+This is a test web app built using the nextjs framework that retrieve images from Unsplash using its public API.
+It presents a home page with the search functionality and a detail page, that is accessible clicking on the tile of an image in the listing page.
 
 ## Technologies Used
 
-- **Next.js 14**: A React framework for production.
+- **Next.js 15**: A React framework for production.
 - **NextUI**: Component library for building modern web applications.
 - **Tailwind CSS**: Utility-first CSS framework for styling.
 - **React**: JavaScript library for building user interfaces.
@@ -13,7 +14,7 @@ This is a test web app built using the nextjs framework that retrieve images fro
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v18.18 or later)
+- [Node.js](https://nodejs.org/) (v22.8.0 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 Yarn is preferred, so now on it will be taken as reference.
@@ -26,7 +27,22 @@ First, run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the application
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:mandraghen/image-searcher.git
+   cd image-searcher
+   ```
+2. Install the dependencies:
+   ```bash
+   yarn install
+   ```
+3. Start the development server:
+   ```bash
+   yarn dev
+   ```
+4. Open your browser and navigate to http://localhost:3000.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

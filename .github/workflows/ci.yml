@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_TAG: dev-${{ github.run_id }}-${{ github.sha }}
+
+jobs:
+  build-and-promote:
+    uses:
+      ./.github/workflows/pr.yml
+    with:
+      skip-preview: true
+    secrets: inherit
