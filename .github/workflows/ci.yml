@@ -15,7 +15,7 @@ jobs:
     with:
       skip-preview: true
 
-  preview-deploy:
+  prod-deploy:
     needs: build
     runs-on: ubuntu-latest
     if: ${{ success() }}
@@ -29,5 +29,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'promote.yml',
-              ref: '${{ github.head_ref }}'
+              ref: 'main'
               });
