@@ -34,18 +34,7 @@ jobs:
 
   preview-deploy:
     needs: lint-and-build
-    runs-on: ubuntu-latest
     if: ${{ !inputs.skip-preview && success() }}
-    steps:
-       - name: Trigger preview workflow
-         uses: actions/github-script@v7
-         with:
-          github-token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
-          script: |
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'preview.yml',
-              ref: '${{ github.head_ref }}'
-              });
-    
+    uses: ./.github/workflows/preview.yml
+    secrets: inherit
+         
