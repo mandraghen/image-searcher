@@ -9,9 +9,25 @@ env:
   IMAGE_TAG: dev-${{ github.run_id }}-${{ github.sha }}
 
 jobs:
-  build-and-promote:
+  build:
     uses:
       ./.github/workflows/pr.yml
     with:
       skip-preview: true
-    secrets: inherit
+
+  preview-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    steps:
+       - name: Trigger prod workflow
+         uses: actions/github-script@v7
+         with:
+          github-token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'promote.yml',
+              ref: '${{ github.head_ref }}'
+              });
