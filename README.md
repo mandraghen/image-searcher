@@ -1,10 +1,4 @@
-[![Pull Request](https://github.com/mandraghen/image-searcher/actions/workflows/pr.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/pr.yml)
-
-[![CI](https://github.com/mandraghen/image-searcher/actions/workflows/ci.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/ci.yml)
-
-[![Vercel Preview Deployment](https://github.com/mandraghen/image-searcher/actions/workflows/preview.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/preview.yml)
-
-[![Vercel Production Deployment](https://github.com/mandraghen/image-searcher/actions/workflows/promote.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/promote.yml)
+[![Pull Request](https://github.com/mandraghen/image-searcher/actions/workflows/pr.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/pr.yml)[![CI](https://github.com/mandraghen/image-searcher/actions/workflows/ci.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/ci.yml)[![Vercel Preview Deployment](https://github.com/mandraghen/image-searcher/actions/workflows/preview.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/preview.yml)[![Vercel Production Deployment](https://github.com/mandraghen/image-searcher/actions/workflows/promote.yml/badge.svg)](https://github.com/mandraghen/image-searcher/actions/workflows/promote.yml)
 
 # image-searcher
 This is a test web app built using the nextjs framework that retrieve images from Unsplash using its public API.
